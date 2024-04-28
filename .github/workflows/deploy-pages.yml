@@ -56,15 +56,26 @@ jobs:
       # 5、安装依赖
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
-      # 6、打包
-      - name: Build
-        run: pnpm build
-      # 7、部署 GitHub Pages
-      - name: Deploy GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          BRANCH: pages
-          FOLDER: docs/.vitepress/dist
+      - name: vuepress-deploy
+        uses: jenkey2011/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          TARGET_REPO: username/repo
+          TARGET_BRANCH: master
+          BUILD_SCRIPT: pnpm build
+          # BUILD_SCRIPT: yarn && yarn docs:build
+          BUILD_DIR: docs/.vuepress/dist
+          # CNAME: https://www.xxx.com
+      # # 6、打包
+      # - name: Build
+      #   run: pnpm build
+      # # 7、部署 GitHub Pages
+      # - name: Deploy GitHub Pages
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     folder: ./docs/.vuepress/dist
+      #     publish_branch: pages  # The target branch for deployment
+      #     publish_dir: ./docs/.vuepress/dist  # The folder where your built site is located
 
   # 任务2: 部署 Gitee Pages
   # deploy-gitee-pages:
