@@ -41,29 +41,29 @@ jobs:
           git config --global core.autocrlf false
           git config --global core.safecrlf true
           git config --global core.ignorecase false
-      # 3、安装 PNPM
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-      # 4、安装 Node 环境
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org
-          cache: pnpm
-      # 5、安装依赖
-      - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+      # # 3、安装 PNPM
+      # - name: Setup PNPM
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: latest
+      # # 4、安装 Node 环境
+      # - name: Setup Node
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 18
+      #     registry-url: https://registry.npmjs.org
+      #     cache: pnpm
+      # # 5、安装依赖
+      # - name: Install dependencies
+      #   run: pnpm i --frozen-lockfile
       - name: vuepress-deploy
         uses: jenkey2011/vuepress-deploy@master
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           TARGET_REPO: username/repo
           TARGET_BRANCH: master
-          BUILD_SCRIPT: pnpm build
-          # BUILD_SCRIPT: yarn && yarn docs:build
+          # BUILD_SCRIPT: pnpm build
+          BUILD_SCRIPT: yarn && yarn docs:build
           BUILD_DIR: docs/.vuepress/dist
           # CNAME: https://www.xxx.com
       # # 6、打包
