@@ -1,5 +1,5 @@
 ---
-title: 我的归档
+title: Archives
 aside: false
 editLink: false
 lastUpdated: false

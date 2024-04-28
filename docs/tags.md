@@ -1,5 +1,5 @@
 ---
-title: 我的标签
+title: Tags
 aside: false
 editLink: false
 lastUpdated: false

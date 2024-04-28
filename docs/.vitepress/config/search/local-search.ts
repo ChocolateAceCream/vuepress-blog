@@ -5,8 +5,8 @@ export const localSearchOptions: LocalSearchOptions = {
     root: {
       translations: {
         button: {
-          buttonText: '搜索文档',
-          buttonAriaLabel: '搜索文档'
+          buttonText: 'Search',
+          buttonAriaLabel: 'Search'
         },
         modal: {
           noResultsText: '无法找到相关结果',
