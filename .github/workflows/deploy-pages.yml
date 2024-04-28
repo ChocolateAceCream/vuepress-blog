@@ -60,7 +60,7 @@ jobs:
       - name: Build
         run: pnpm build
       - name: List output directory
-        run: ls
+        run: ls ./docs
       # 7、部署 GitHub Pages
       - name: Deploy GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
