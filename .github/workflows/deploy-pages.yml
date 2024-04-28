@@ -59,13 +59,11 @@ jobs:
       # 6、打包
       - name: Build
         run: pnpm build
-      - name: List output directory
-        run: ls -a ./docs
       # 7、部署 GitHub Pages
       - name: Deploy GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: docs/.vuepress/dist # The folder where your built site is located
+          folder: docs/.vitepress/dist # The folder where your built site is located
           token: ${{ secrets.ACCESS_TOKEN }}
           branch: pages  # The target branch for deployment
   # 任务2: 部署 Gitee Pages
