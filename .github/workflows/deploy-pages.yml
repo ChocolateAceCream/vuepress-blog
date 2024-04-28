@@ -59,6 +59,8 @@ jobs:
       # 6、打包
       - name: Build
         run: pnpm build
+      - name: List output directory
+        run: ls -la docs/.vuepress
       # 7、部署 GitHub Pages
       - name: Deploy GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
