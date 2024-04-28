@@ -60,6 +60,8 @@ jobs:
       - name: Build
         run: pnpm build
       # 7、部署 GitHub Pages
+      - name: add nojekyll
+        run: touch docs/.vitepress/dist/.nojekyll
       - name: Deploy GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
