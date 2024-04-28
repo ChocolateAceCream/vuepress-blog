@@ -63,7 +63,7 @@ jobs:
       - name: Deploy GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./docs/.vuepress/dist # The folder where your built site is located
+          folder: docs/.vuepress/dist # The folder where your built site is located
           token: ${{ secrets.ACCESS_TOKEN }}
           branch: pages  # The target branch for deployment
   # 任务2: 部署 Gitee Pages
