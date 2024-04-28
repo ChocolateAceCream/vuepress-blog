@@ -41,42 +41,31 @@ jobs:
           git config --global core.autocrlf false
           git config --global core.safecrlf true
           git config --global core.ignorecase false
-      # # 3、安装 PNPM
-      # - name: Setup PNPM
-      #   uses: pnpm/action-setup@v2
-      #   with:
-      #     version: latest
-      # # 4、安装 Node 环境
-      # - name: Setup Node
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 18
-      #     registry-url: https://registry.npmjs.org
-      #     cache: pnpm
-      # # 5、安装依赖
-      # - name: Install dependencies
-      #   run: pnpm i --frozen-lockfile
-      - name: vuepress-deploy
-        uses: jenkey2011/vuepress-deploy@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          TARGET_REPO: username/repo
-          TARGET_BRANCH: master
-          # BUILD_SCRIPT: pnpm build
-          BUILD_SCRIPT: yarn && yarn docs:build
-          BUILD_DIR: docs/.vuepress/dist
-          # CNAME: https://www.xxx.com
-      # # 6、打包
-      # - name: Build
-      #   run: pnpm build
-      # # 7、部署 GitHub Pages
-      # - name: Deploy GitHub Pages
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     folder: ./docs/.vuepress/dist
-      #     publish_branch: pages  # The target branch for deployment
-      #     publish_dir: ./docs/.vuepress/dist  # The folder where your built site is located
-
+      # 3、安装 PNPM
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      # 4、安装 Node 环境
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
+      # 5、安装依赖
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+      # 6、打包
+      - name: Build
+        run: pnpm build
+      # 7、部署 GitHub Pages
+      - name: Deploy GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./docs/.vuepress/dist # The folder where your built site is located
+          token: ${{ secrets.ACCESS_TOKEN }}
+          branch: pages  # The target branch for deployment
   # 任务2: 部署 Gitee Pages
   # deploy-gitee-pages:
   #   runs-on: ubuntu-latest
