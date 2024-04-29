@@ -7,7 +7,7 @@ import { themeConfig } from './config/theme';
 
 export default withMermaid(
   defineConfig({
-    base: '/',
+    base: "/vuepress-blog/",
     lang: metaData.lang,
     title: metaData.title,
     description: metaData.description,
@@ -25,7 +25,7 @@ export default withMermaid(
       },
     },
     themeConfig, // 主题配置
-  }),
+  })
 );
 
 const customElements = [
