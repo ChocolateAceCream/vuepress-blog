@@ -7,7 +7,7 @@ import { themeConfig } from './config/theme';
 
 export default withMermaid(
   defineConfig({
-    base: './',
+    base: '/',
     lang: metaData.lang,
     title: metaData.title,
     description: metaData.description,
