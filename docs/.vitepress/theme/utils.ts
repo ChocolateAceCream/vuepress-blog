@@ -20,7 +20,7 @@ export function getQueryParam(paramName) {
   let value = decodeURIComponent(window.location.search.substr(1)).match(reg);
   if (value != null) {
     return unescape(value[2]);
-  } 
+  }
   return null;
 }
 
@@ -56,4 +56,9 @@ export function getChineseZodiac(year) {
 export function getChineseZodiacAlias(year) {
   const arr = ['猴年', '鸡年', '狗年', '猪年', '鼠年', '牛年', '虎年', '兔年', '龙年', '蛇年', '马年', '羊年'];
   return arr[year % 12];
+}
+
+export function getMonthName(month) {
+  const arr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  return arr[month - 1];
 }

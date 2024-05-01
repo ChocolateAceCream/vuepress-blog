@@ -10,7 +10,7 @@ export const nav: DefaultTheme.Config["nav"] = [
         activeMatch: "/categories/issues/",
       },
       {
-        text: '"杂碎"逆袭史',
+        text: "fragments",
         link: "/categories/fragments/index",
         activeMatch: "/categories/fragments/",
       },
