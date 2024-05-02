@@ -12,11 +12,11 @@ tags:
 
 # Build-in Utility Types <Badge text="TypeScript" type="warning" />
 
-When a type is broadly applicable, TypeScript integrates it as a built-in utility type.
+when a type feels like can be widely used in many cases. Typescript integrate the type as built-in types
 
-- **Partial**
+- Partial
 ```ts
-// Partial<Type>: Makes all properties of Type optional.
+// Partial<Type>: make Type params all optional
 interface Sticker {
   id: number;
   name: string;
@@ -26,15 +26,14 @@ interface Sticker {
 }
 
 type StickerUpdateParam = Partial<Sticker>;
-// Now, all fields in Sticker are optional.
+// now all fields in Sticker is optional
 ```
 
-- **Readonly**
+- Readonly: convert all fields in a type to be readonly, which means the value of field cannot be re-assigned after its initialization in constructor
 ```ts
-// Converts all fields in a type to be readonly, which means the value of the field cannot be reassigned after its initialization in the constructor.
-type ReadonlySticker = Readonly<Sticker>;
+type Readonly = Readonly<Sticker>
 
-// Normally, you can use it to set a field to be readonly.
+// normally you can use to set a field to be readonly
 class Example {
   readonly name: string;
 
@@ -44,42 +43,26 @@ class Example {
 }
 ```
 
-- **Record<param1, param2>**
-```ts
-// Creates a type using keys from an array (first param) and assigns each key a value from the second param.
-```
+- Record<param1, param2>: create a type using keys from an array (first param) and give each key the value from second param
 
-- **Pick<T, Keys>**
+- Pick<T, Keys>: pick types from T which has key in Keys.
+e.g.
+
 ```ts
-// Picks properties from T that are specified in Keys.
 type StickerSortPreview = Pick<Sticker, "name" | "updatedAt">;
-// Using '|' means Keys can be 'name' or 'updatedAt', so both should be included in the type StickerSortPreview.
+// use | means Keys can be name or updatedAt. So both should be included in type StickerSortPreview
 ```
 
-- **Omit<T, Keys>**
-```ts
-// Omits properties from T that are specified in Keys.
-type OmitDemo = Omit<Sticker, "name" | "updatedAt">
-// Using '|' to filter out both types.
-```
+- `Omit<T, Keys>`: same as above, filter out T's types which key in Keys.
 
-- **Exclude<T1, T2>**
-```ts
-// Removes properties from T1 that are also included in T2.
-```
+> type OmitDemo = Omit<Sticker, "name" | "updatedAt">
 
-- **Extract<T1, T2>**
-```ts
-// Returns the same properties from T1 and T2, if not found, returns never.
-```
+use `|` to filter out both types
 
-- **NonNullable<T>**
-```ts
-// Filters out null and undefined from T.
-```
+- `Exclude<T1, T2>`: remove props from T1 which is also included in T2
 
-- **Required<T>**
-```ts
-// Converts all optional properties in T to required.
-```
+- `Extract<T1, T2>`: return same props from T1 and T2, if not found, return never
 
+- `NonNullable<T>`: filter out null and undefined from T
+
+- `Required<T>`: convert all optional props in T to required
