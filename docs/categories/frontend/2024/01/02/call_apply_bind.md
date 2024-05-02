@@ -2,7 +2,7 @@
 title: Difference between call, apply & bind
 author: ChocolateAceCream
 date: 2023/01/02 19:00
-isTop: true
+isTop: false
 categories:
  - frontend
 tags:

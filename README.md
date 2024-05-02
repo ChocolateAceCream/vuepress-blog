@@ -14,3 +14,32 @@
 
 📝 **Personal blogs, learning notes, reflections etc...**
 🐢 [Entry Point](https://chocolateacecream.github.io/vuepress-blog/)
+
+
+### Template
+original
+---
+title: Difference between call, apply & bind
+author: ChocolateAceCream
+date: 2023/01/02 19:00
+isTop: true
+categories:
+ - frontend
+tags:
+ - JavaScript
+---
+
+shared
+---
+title: xxx
+isOriginal: false
+author: author
+date: 2023/01/06 20:12
+articleTitle:xxx
+articleLink: https://mp.weixin.qq.com/s/_4MFrQSYOIGYRdDGOJPDKQ
+categories:
+ - xxx
+tags:
+ - Code Review
+ - xxx
+---
