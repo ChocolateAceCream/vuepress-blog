@@ -4,16 +4,17 @@ import matter from 'gray-matter';
 import { getChineseZodiac, getChineseZodiacAlias } from '../theme/utils.ts';
 const sync = fg.sync;
 
-export const sidebar: DefaultTheme.Config['sidebar'] = {
-  '/categories/issues/': getItemsByDate("categories/issues"),
-  '/categories/fragments/': getItemsByDate("categories/fragments"),
-  '/categories/solutions/': getItemsByDate("categories/solutions"),
-  '/categories/tools/': getItemsByDate("categories/tools"),
+export const sidebar: DefaultTheme.Config["sidebar"] = {
+  "/categories/frontend/": getItemsByDate("categories/frontend"),
+  "/categories/issues/": getItemsByDate("categories/issues"),
+  "/categories/fragments/": getItemsByDate("categories/fragments"),
+  "/categories/solutions/": getItemsByDate("categories/solutions"),
+  "/categories/tools/": getItemsByDate("categories/tools"),
 
-  '/courses/java/': getItems("courses/java"),
-  '/courses/mysql/': getItems("courses/mysql"),
-  '/courses/mybatis/': getItems("courses/mybatis"),
-}
+  "/courses/java/": getItems("courses/java"),
+  "/courses/mysql/": getItems("courses/mysql"),
+  "/courses/mybatis/": getItems("courses/mybatis"),
+};
 
 /**
  * 根据 某分类/YYYY/MM/dd/xxx.md 的目录格式, 获取侧边栏分组及分组下标题

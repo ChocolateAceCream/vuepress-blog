@@ -5,6 +5,11 @@ export const nav: DefaultTheme.Config["nav"] = [
     text: "Categories",
     items: [
       {
+        text: "Frontend",
+        link: "/categories/frontend/index",
+        activeMatch: "/categories/frontend/",
+      },
+      {
         text: "Bug万象集",
         link: "/categories/issues/index",
         activeMatch: "/categories/issues/",
