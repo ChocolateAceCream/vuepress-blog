@@ -28,6 +28,27 @@ export const nav: DefaultTheme.Config["nav"] = [
     activeMatch: "/categories/",
   },
   {
+    text: "Readings",
+    items: [
+      {
+        text: "MySQL",
+        link: "/courses/MySQL/index",
+        activeMatch: "/courses/MySQL/",
+      },
+      // {
+      //   text: "MySQL快速入门",
+      //   link: "/courses/mysql/index",
+      //   activeMatch: "/courses/mysql/",
+      // },
+      // {
+      //   text: "MyBatis快速入门",
+      //   link: "/courses/mybatis/index",
+      //   activeMatch: "/courses/mybatis/",
+      // },
+    ],
+    activeMatch: "/courses/",
+  },
+  {
     text: "Tags",
     link: "/tags",
     activeMatch: "/tags",

@@ -12,7 +12,7 @@ tags:
  - K8S
 ---
 
-# Consul API Gateway
+# Consul API Gateway <Badge text="Consul" type="warning" />
 
 ## purpose
 1. expose api gateway, so traffic will route from gateway to each service. this setup you only need to expose a single api gateway through ingress.

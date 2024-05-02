@@ -5,9 +5,9 @@ lastUpdated: false
 showComment: false
 ---
 
-# frontend Related Blogs
+# Backend Related Blogs
 
 ::: tip Contents
-- Javascript
-- Typescript
+- Go
+- Gorm
 :::

@@ -8,6 +8,6 @@ showComment: false
 # IoT Related Blogs
 
 ::: tip Contents
-- Javascript
-- Typescript
+- Raspberry Pi
+- OpenWRT
 :::

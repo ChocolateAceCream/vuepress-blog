@@ -8,6 +8,6 @@ showComment: false
 # DevOps Related Blogs
 
 ::: tip Contents
-- Javascript
-- Typescript
+- K8S
+- Docker
 :::
