@@ -1,5 +1,5 @@
 ---
-title: window.requestAnimationFrame()
+title: requestAnimationFrame()
 author: ChocolateAceCream
 date: 2024/02/14 19:00
 isTop: false
