@@ -1,5 +1,5 @@
 ---
-title: Difference between call, apply & bind
+title: call, apply & bind
 author: ChocolateAceCream
 date: 2023/01/02 19:00
 isTop: false

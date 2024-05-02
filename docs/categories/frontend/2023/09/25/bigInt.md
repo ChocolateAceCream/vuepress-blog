@@ -10,7 +10,7 @@ tags:
 ---
 
 
-# BigInt
+# BigInt <Badge text="JavaScript" type="warning" />
 
 ### Why BigInt ?
 

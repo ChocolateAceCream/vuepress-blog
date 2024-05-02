@@ -1,5 +1,5 @@
 ---
-title: The `window.requestAnimationFrame()` Method
+title: window.requestAnimationFrame()
 author: ChocolateAceCream
 date: 2024/02/14 19:00
 isTop: false
@@ -10,7 +10,7 @@ tags:
 ---
 
 
-# The `window.requestAnimationFrame()` Method
+# The `window.requestAnimationFrame()` Method <Badge text="JavaScript" type="warning" />
 
 ## Syntax
 

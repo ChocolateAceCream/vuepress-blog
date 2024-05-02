@@ -1,5 +1,5 @@
 ---
-title: Differences Between Arrow Functions and Regular Functions
+title: Arrow Functions & Regular Functions
 author: ChocolateAceCream
 date: 2023/12/31 19:00
 isTop: false
@@ -10,7 +10,7 @@ tags:
 ---
 
 
-# Differences Between Arrow Functions and Regular Functions
+# Differences Between Arrow Functions and Regular Functions <Badge text="JavaScript" type="warning" />
 
 In JavaScript, arrow functions and regular functions serve similar but distinct purposes, with notable differences in behavior and capabilities.
 
