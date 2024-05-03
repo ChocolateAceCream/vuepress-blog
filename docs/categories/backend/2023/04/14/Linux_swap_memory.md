@@ -19,7 +19,7 @@ usually cloud server only have limited memory that run out easily, one solution 
 free -h
 ```
 if there's any swap, remove swap so we can add new one
-```base
+```bash
 sudo swapoff /swapfile
 sudo rm  /swapfile
 ```
