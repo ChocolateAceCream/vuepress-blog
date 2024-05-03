@@ -151,7 +151,7 @@ function getItems (path: string) {
     // 3.向前追加到分组
     // 当分组内文章数量少于 A 篇或文章总数显示超过 B 篇时，自动折叠分组
     groups.push({
-      text: `${groupName.substring(groupName.indexOf('-') + 1)} (${items.length}篇)`,
+      text: `${groupName.substring(groupName.indexOf('-') + 1)} (${items.length})`,
       items: items,
       collapsed: items.length < groupCollapsedSize || total > titleCollapsedSize,
     })
