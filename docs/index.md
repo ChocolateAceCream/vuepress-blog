@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: Quick Start
-      link: /categories/issues/index
+      link: /categories/frontend/index
     - theme: alt
       text: GitHub
       link: https://github.com/ChocolateAceCream
