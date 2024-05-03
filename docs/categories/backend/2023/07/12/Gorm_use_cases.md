@@ -12,6 +12,7 @@ tags:
  - MySQL
  - Cascade Delete
 ---
+
 # Gorm Use Cases Sample Codes <Badge text="Gorm" type="warning" />
 ## Gorm raw sql pagination
 
