@@ -35,6 +35,11 @@ export const nav: DefaultTheme.Config["nav"] = [
         link: "/courses/MySQL/index",
         activeMatch: "/courses/MySQL/",
       },
+      {
+        text: "Orchestrator",
+        link: "/courses/Orchestrator/index",
+        activeMatch: "/courses/Orchestrator/",
+      },
       // {
       //   text: "MySQL快速入门",
       //   link: "/courses/mysql/index",

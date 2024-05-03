@@ -1,0 +1,44 @@
+---
+title: Cube Project Overview
+author: ChocolateAceCream
+date: 2024/03/22 10:24
+isTop: true
+categories:
+ - Orchestrator
+tags:
+ - Orchestrator
+---
+
+# Cube Project Overview<Badge text="Orchestrator" type="warning" />
+
+### Overall Architecture
+![overall_arch](../../../public/img/2024/03/22/overall_arch.png)
+
+### task life-cycle
+![task life-cycle](../../../public/img/2024/03/22/task-life-cycle.png)
+
+### Tools and Libs
+- Go
+- chi
+- Docker SDK
+- BoltDB
+- goprocinfo
+
+#### Docker SDK
+We can use docker cli to send command to control docker, or send curl request via UDP or TCP to trigger docker api. Or, we can use high level go docker SDK to communicate with docker. Common APIs are:
+- NewClientWithOpts
+A helper method that instantiates an instance of the client and returns it to the caller
+- ImagePull
+Pulls the image down to the local machine where it will be run
+
+- ContainerCreate
+Creates a new container with a given configuration
+
+- ContainerStart
+Sends a request to Docker Engine to start the newly created container
+
+- ContainerStop
+Sends a request to Docker Engine to stop a running container
+
+- ContainerRemove
+Removes the container from the host
