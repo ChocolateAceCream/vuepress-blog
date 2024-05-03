@@ -8,6 +8,6 @@ showComment: false
 # DevOps Related Blogs
 
 ::: tip Contents
-- K8S
+- Kubernetes
 - Docker
 :::

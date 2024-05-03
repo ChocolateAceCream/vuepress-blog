@@ -9,7 +9,7 @@ tags:
  - Consul
  - API Gateway
  - Go
- - K8S
+ - Kubernetes
 ---
 
 # Consul API Gateway <Badge text="Consul" type="warning" />
