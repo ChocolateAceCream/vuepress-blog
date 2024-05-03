@@ -11,7 +11,7 @@ tags:
  - Github Action
 ---
 
-# Config Github Action for CI/CD
+# Config Github Action for CI/CD <Badge text="Github" type="warning" />
 
 ## Background
 Using github action to automate CI/CD process
