@@ -40,11 +40,16 @@ export const nav: DefaultTheme.Config["nav"] = [
         link: "/courses/Orchestrator/index",
         activeMatch: "/courses/Orchestrator/",
       },
-      // {
-      //   text: "MySQL快速入门",
-      //   link: "/courses/mysql/index",
-      //   activeMatch: "/courses/mysql/",
-      // },
+      {
+        text: "Interview Questions",
+        link: "/courses/InterviewQuestions/index",
+        activeMatch: "/courses/InterviewQuestions/",
+      },
+      {
+        text: "AWS Certification",
+        link: "/courses/AWS/index",
+        activeMatch: "/courses/AWS/",
+      },
       // {
       //   text: "MyBatis快速入门",
       //   link: "/courses/mybatis/index",
