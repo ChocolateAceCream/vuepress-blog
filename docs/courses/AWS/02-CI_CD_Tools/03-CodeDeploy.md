@@ -166,4 +166,4 @@ Hooks:
 - BeforeAllowTraffic: after tests completed, but before production traffic is served
 - AfterAllowTraffic: after production traffic is served
 
-[AppSpec_Hooks_by_Deployment](../../../public/pdf/2024/05/07/AppSpec_Hooks_by_Deployment.pdf)
+[AppSpec_Hooks_by_Deployment](/pdf/2024/05/07/AppSpec_Hooks_by_Deployment.pdf)
