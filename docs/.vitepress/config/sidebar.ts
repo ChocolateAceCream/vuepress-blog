@@ -79,7 +79,7 @@ function getItemsByDate (path: string) {
 
     // 添加年份分组
     yearGroups.unshift({
-      text: `<img class="chinese-zodiac" style="position: static; vertical-align: middle; padding-bottom: 3px;" src="/img/svg/chinese-zodiac/${getChineseZodiac(
+      text: `<img class="chinese-zodiac" style="position: static; vertical-align: middle; padding-bottom: 3px;" src="/vuepress-blog/img/svg/chinese-zodiac/${getChineseZodiac(
         year.replace("年", "")
       )}.svg" title="${getChineseZodiacAlias(
         year.replace("年", "")
