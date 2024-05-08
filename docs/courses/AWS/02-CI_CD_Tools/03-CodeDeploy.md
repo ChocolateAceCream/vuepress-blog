@@ -167,3 +167,84 @@ Hooks:
 - AfterAllowTraffic: after production traffic is served
 
 [AppSpec_Hooks_by_Deployment](/pdf/2024/05/07/AppSpec_Hooks_by_Deployment.pdf)
+
+##### Sample nodejs lambda function
+```js
+'use strict';
+
+ const AWS = require('aws-sdk');
+ const codedeploy = new AWS.CodeDeploy({apiVersion: '2014-10-06'});
+
+ exports.handler = (event, context, callback) => {
+
+ 	console.log("Entering AfterAllowTestTraffic hook.");
+
+ 	// Read the DeploymentId and LifecycleEventHookExecutionId from the event payload
+  var deploymentId = event.DeploymentId;
+ 	var lifecycleEventHookExecutionId = event.LifecycleEventHookExecutionId;
+ 	var validationTestResult = "Failed";
+
+ 	// Perform AfterAllowTestTraffic validation tests here. Set the test result
+ 	// to "Succeeded" for this tutorial.
+ 	console.log("This is where AfterAllowTestTraffic validation tests happen.")
+ 	validationTestResult = "Succeeded";
+
+ 	// Complete the AfterAllowTestTraffic hook by sending CodeDeploy the validation status
+ 	var params = {
+ 		deploymentId: deploymentId,
+ 		lifecycleEventHookExecutionId: lifecycleEventHookExecutionId,
+ 		status: validationTestResult // status can be 'Succeeded' or 'Failed'
+ 	};
+
+ 	// Pass AWS CodeDeploy the prepared validation test results.
+ 	codedeploy.putLifecycleEventHookExecutionStatus(params, function(err, data) {
+ 		if (err) {
+ 			// Validation failed.
+ 			console.log('AfterAllowTestTraffic validation tests failed');
+ 			console.log(err, err.stack);
+ 			callback("CodeDeploy Status update failed");
+ 		} else {
+ 			// Validation succeeded.
+ 			console.log("AfterAllowTestTraffic validation tests succeeded");
+ 			callback(null, "AfterAllowTestTraffic validation tests succeeded");
+ 		}
+ 	});
+ }
+```
+
+## Canary Deployment
+test your canary with live production traffic. Traffic is shifted in two increments:
+1. the first shifts some traffic to the canary
+2. the next shifts all traffic to the new app at the end of the selected interval
+If your technical or business metrics passed the canary test, continue with the deployment or else rollback gracefully
+
+sample config
+```yaml
+Resources:
+ MyLambdaFunction:
+   Type: AWS::Serverless::Function
+   Properties:
+     Handler: index.handler
+     Runtime: nodejs12.x
+     CodeUri: s3://bucket/code.zip
+
+     AutoPublishAlias: live
+
+     DeploymentPreference:
+       Type: Canary10Percent10Minutes
+       Alarms:
+         # A list of alarms that you want to monitor
+         - !Ref AliasErrorMetricGreaterThanZeroAlarm
+         - !Ref LatestVersionErrorMetricGreaterThanZeroAlarm
+       Hooks:
+         # Validation Lambda functions that are run before & after traffic shifting
+         PreTraffic: !Ref PreTrafficLambdaFunction
+         PostTraffic: !Ref PostTrafficLambdaFunction
+```
+
+### Synthetic testing with canaries
+Synthetic testing is automated testing that emulates user activity on your application every minute of every day.
+
+CloudWatch Synthetics' canaries are Node.js scripts. They create Lambda functions in your account that use Node.js as a framework. Canaries can use the Puppeteer Node.js library to perform functions on your applications.
+
+By default, canaries create CloudWatch metrics in the CloudWatchSynthetics namespace. They create metrics with the names SuccessPercent, Failed, and Duration. These metrics have CanaryName as a dimension.

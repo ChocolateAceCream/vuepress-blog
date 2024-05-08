@@ -12,7 +12,7 @@ export default withMermaid(
     title: metaData.title,
     description: metaData.description,
 
-    cleanUrls: true,
+    cleanUrls: false, // include html extension
     lastUpdated: true, // 显示最后更新时间
 
     head, // <head>内标签配置
