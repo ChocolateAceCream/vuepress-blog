@@ -137,4 +137,4 @@ run: |
   ssh -T server "docker login -u ${{ secrets.DOCKERHUB_USER }} -p ${{ secrets.DOCKERHUB_ACCESS_TOKEN }} && /root/deploy.sh"
   pwd
 ```
-the <a>pwd</a> cmd will not execute on remote server, instead it will return runner's pwd
+the ***pwd*** cmd will not execute on remote server, instead it will return runner's pwd

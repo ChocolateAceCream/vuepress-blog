@@ -3,8 +3,8 @@ import { metaData } from './constants';
 
 export const head: HeadConfig[] = [
   ['link', { rel: 'icon', href: '/favicon.ico' }],
-  ['meta', { name: 'author', content: 'Charles7c' }],
-  ['meta', { name: 'keywords', content: '查尔斯的知识库, 知识库, 博客, Charles7c' }],
+  ['meta', { name: 'author', content: 'ChocolateACeCream' }],
+  ['meta', { name: 'keywords', content: 'Knowledge Base of Di' }],
 
   ['meta', { name: 'HandheldFriendly', content: 'True' }],
   ['meta', { name: 'MobileOptimized', content: '320' }],
@@ -19,13 +19,13 @@ export const head: HeadConfig[] = [
   ['meta', { property: 'og:image', content: metaData.image }],
 
   // 百度统计代码：https://tongji.baidu.com
-  ['script', {}, `var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?53af4b1a12fbe40810ca7ad39f8db9c7";
-    var s = document.getElementsByTagName("script")[0]; 
-    s.parentNode.insertBefore(hm, s);
-  })();`],
+  // ['script', {}, `var _hmt = _hmt || [];
+  // (function() {
+  //   var hm = document.createElement("script");
+  //   hm.src = "https://hm.baidu.com/hm.js?53af4b1a12fbe40810ca7ad39f8db9c7";
+  //   var s = document.getElementsByTagName("script")[0];
+  //   s.parentNode.insertBefore(hm, s);
+  // })();`],
   // 页面访问量统计
   // ['script', {}, `
   // window.addEventListener('load', function() {

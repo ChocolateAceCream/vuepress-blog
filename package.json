@@ -7,28 +7,28 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
+    "build": "vitepress build docs --debug=true",
     "preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@arco-design/web-vue": "^2.53.3",
+    "@arco-design/web-vue": "^2.55.1",
     "@types/blueimp-md5": "^2.18.2",
-    "@types/jquery": "^3.5.29",
+    "@types/jquery": "^3.5.30",
     "markdown-it": "^13.0.2",
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-mathjax3": "^4.3.2",
     "mermaid": "9.3.0",
     "unplugin-vue-components": "^0.25.2",
-    "vite": "^5.0.3",
-    "vitepress": "1.0.0-rc.31",
+    "vite": "^5.2.11",
+    "vitepress": "1.1.4",
     "vitepress-plugin-mermaid": "2.0.8",
-    "vue": "^3.3.9"
+    "vue": "^3.4.27"
   },
   "dependencies": {
     "@antv/g2plot": "2.4.31",
-    "axios": "^1.6.2",
+    "axios": "^1.6.8",
     "blueimp-md5": "^2.19.0",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.11",
     "fast-glob": "^3.3.2",
     "gitalk": "^1.8.0",
     "gray-matter": "^4.0.3",

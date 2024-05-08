@@ -86,7 +86,8 @@ function getItemsByDate (path: string) {
       )}" alt="生肖">
             ${year} total: ${articleItems.length}`,
       items: articleItems,
-      collapsed: true,
+      collapsed: false,
+      // collapsed: true,
     });
   })
 
@@ -108,7 +109,6 @@ function getItemsByDate (path: string) {
 
   // 添加序号
   addOrderNumber(yearGroups);
-  console.log(yearGroups);
   return yearGroups;
 }
 
@@ -156,7 +156,8 @@ function getItems (path: string) {
     groups.push({
       text: `${groupName.substring(groupName.indexOf('-') + 1)} (${items.length})`,
       items: items,
-      collapsed: items.length < groupCollapsedSize || total > titleCollapsedSize,
+      collapsed: false,
+      // collapsed: items.length < groupCollapsedSize || total > titleCollapsedSize,
     })
 
     // 4.清空侧边栏分组下标题数组
