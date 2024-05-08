@@ -49,7 +49,7 @@
     <!-- 时间轴主体 -->
     <div class="timeline-item" v-for="(item, year) in archiveData">
       <div class="year">
-        <img class="chinese-zodiac" @click="goToLink('/archives', 'year', year)" :src="'/vuepress-blog/img/svg/chinese-zodiac/' + getChineseZodiac(year) + '.svg'" :title="getChineseZodiacAlias(year)" alt="生肖">
+        <img class="chinese-zodiac" @click="goToLink('/archives', 'year', year)" :src="'/img/svg/chinese-zodiac/' + getChineseZodiac(year) + '.svg'" :title="getChineseZodiacAlias(year)" alt="生肖">
         <span>{{ year }}</span>
       </div>
       <div class="timeline-item-content">
