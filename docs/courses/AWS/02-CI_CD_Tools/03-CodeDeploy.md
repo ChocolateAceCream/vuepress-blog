@@ -248,3 +248,45 @@ Synthetic testing is automated testing that emulates user activity on your appli
 CloudWatch Synthetics' canaries are Node.js scripts. They create Lambda functions in your account that use Node.js as a framework. Canaries can use the Puppeteer Node.js library to perform functions on your applications.
 
 By default, canaries create CloudWatch metrics in the CloudWatchSynthetics namespace. They create metrics with the names SuccessPercent, Failed, and Duration. These metrics have CanaryName as a dimension.
+
+## Manual and automatic approvals
+- reject = fail
+- no one approves in 7 days = reject
+Since manual approval may takes longer so automatic pipeline is recommended here
+![automate_approval_process](../../../public/img/2024/05/07/automate_approval_process.png)
+when application reaches the approval stage, codepipleline can send an event to an Amazon SNS topic, which will then sends out notifications to all necessary resources including lambda function that will perform testing
+
+example of lambda function that will approve an approval action
+```python
+client = boto3.client('codepipeline')
+response = client.get_pipeline_state(name=pipeline_name)
+
+approve = _json_parsing_magic(response)
+
+if approve:
+  client.put_approval_result(
+    pipelineName=pipeline_name,
+    stageName=stage_name,
+    actionName=action_name,
+    result={
+        'summary': 'Automatically approved by Lambda.',
+        'status': 'Approved'
+    },
+    token=token
+  )
+```
+
+### Disable/enable transaction
+Disable the transition to a stage named Staging in a pipeline named MyFirstPipeline:
+
+
+
+>aws codepipeline disable-stage-transition --pipeline-name MyFirstPipeline --stage-name Staging --transition-type Inbound --reason "My Reason"
+
+enable the transition to a stage named Staging in a pipeline named MyFirstPipeline:
+> aws codepipeline enable-stage-transition --pipeline-name MyFirstPipeline --stage-name Staging  --transition-type Inbound
+
+### Halt Promotions
+CodeDeploy rolls back deployments by redeploying a previously version.
+- automatic: configure a deployment group or deployment to automatically roll back when fails or a customized threshold was met
+- manual rollback
