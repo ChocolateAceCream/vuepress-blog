@@ -8,7 +8,6 @@ categories:
 tags:
  - TypeScript
  - React Native
- - Expo
  - Iconfont
 ---
 

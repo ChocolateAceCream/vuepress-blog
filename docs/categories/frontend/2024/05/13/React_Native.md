@@ -1,5 +1,5 @@
 ---
-title: TS Module
+title: React Native Beginner Guide
 author: ChocolateAceCream
 date: 2024/05/13 19:00
 isTop: false
@@ -8,7 +8,6 @@ categories:
 tags:
  - TypeScript
  - React Native
- - Expo
  - WSL2
 ---
 

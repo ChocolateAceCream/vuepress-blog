@@ -149,7 +149,7 @@
                 <path d="M24 41H8V6h32v17"></path>
                 <path d="M30 29h11v13l-5.5-3.5L30 42V29Z"></path>
               </svg>
-              <a :href="article.path" class="title" target="_blank">{{ article.title }}</a>
+              <a :href="article.path" class="title" >{{ article.title }}</a>
               <br>
               <ArticleMetadata :article="article" />
             </span>

@@ -36,7 +36,7 @@
             <a-list-item v-for="(article, index) in tags[selectTag]">
               <div class="result-item">
                 <h3 class="result-item-title">
-                  <a :href="article.path" class="title" target="_blank">{{ article.title }}</a>
+                  <a :href="article.path" class="title">{{ article.title }}</a>
                 </h3>
                 <p class="result-item-description"></p>
                 <!-- 文章元数据信息 -->
