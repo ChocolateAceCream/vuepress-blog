@@ -99,3 +99,29 @@ console.timeEnd();
 let m = [1,2,3,4]
 Object.prototype.toString.call(m)
 ```
+
+## every, some, forEach
+every and some were introduced in ES5, because in forEach loop, you can not exit early (have to finish all iterations)
+```ts
+// some example
+function containsEvenNumber(array: number[]): boolean {
+  return array.some(element => element % 2 === 0);
+}
+
+const numbers = [1, 3, 5, 7, 8];
+console.log(containsEvenNumber(numbers)); // Output: true
+
+const oddNumbers = [1, 3, 5, 7];
+console.log(containsEvenNumber(oddNumbers)); // Output: false
+
+// every example
+function allEvenNumbers(array: number[]): boolean {
+  return array.every(element => element % 2 === 0);
+}
+
+const allEvens = [2, 4, 6, 8];
+console.log(allEvenNumbers(allEvens)); // Output: true
+
+const mixedNumbers = [1, 2, 3, 4];
+console.log(allEvenNumbers(mixedNumbers)); // Output: false
+```
