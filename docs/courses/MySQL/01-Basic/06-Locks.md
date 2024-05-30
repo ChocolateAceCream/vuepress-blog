@@ -16,11 +16,11 @@ We can add locks to read/write operations to solve dirty write/dirty read/repeat
 transactions that applied MVCC under READ COMMITTED, REPEATABLE READ, any SELECT statement is not locked, so called consistent reads.
 
 ### Locking Reads
-Shared Locks(S Lock): To read a record, has to first obtain its S lock
-Exclusive Locks(X Lock): To write a record, has to first obtain its x lock.
-S lock will block x lock
-S lock will not block S lock
-X lock will block S lock and X lock
+- Shared Locks(S Lock): To read a record, has to first obtain its S lock.
+- Exclusive Locks(X Lock): To write a record, has to first obtain its x lock.
+- S lock will block x lock
+- S lock will not block S lock
+- X lock will block S lock and X lock
 
 ##### Synyax
 s lock:
