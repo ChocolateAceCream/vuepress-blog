@@ -35,7 +35,7 @@ X lock:
 1. if updated data storage space not changed, and primary key not changed, then treated as a locking read with X lock
 2. if updated data storage space change, but primary key not changed, treated as a delete with x lock and then insert with explicitly lock.
 3. if primary key changed, indeed it's a delete and insert.
--insert:
+- insert:
 usually adding a new record don't need lock. so mysql introduce an explicitly lock to make sure the inserted data is not visible to other transactions before commit.
 
 ## Multi-granularity lock
