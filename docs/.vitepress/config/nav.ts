@@ -36,6 +36,11 @@ export const nav: DefaultTheme.Config["nav"] = [
         activeMatch: "/courses/MySQL/",
       },
       {
+        text: "PostgreSQL",
+        link: "/courses/PostgreSQL/index",
+        activeMatch: "/courses/PostgreSQL/",
+      },
+      {
         text: "Orchestrator",
         link: "/courses/Orchestrator/index",
         activeMatch: "/courses/Orchestrator/",
