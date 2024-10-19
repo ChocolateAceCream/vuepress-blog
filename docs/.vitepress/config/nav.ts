@@ -1,4 +1,4 @@
-import type { DefaultTheme } from 'vitepress';
+import type { DefaultTheme } from "vitepress";
 
 export const nav: DefaultTheme.Config["nav"] = [
   {
@@ -30,6 +30,11 @@ export const nav: DefaultTheme.Config["nav"] = [
   {
     text: "Readings",
     items: [
+      {
+        text: "Azure",
+        link: "/courses/Azure/index",
+        activeMatch: "/courses/Azure/",
+      },
       {
         text: "MySQL",
         link: "/courses/MySQL/index",

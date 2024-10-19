@@ -33,7 +33,7 @@ var head = [
   (function() {
     var hm = document.createElement("script");
     hm.src = "https://hm.baidu.com/hm.js?53af4b1a12fbe40810ca7ad39f8db9c7";
-    var s = document.getElementsByTagName("script")[0]; 
+    var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
   })();`]
   // 页面访问量统计
@@ -121,6 +121,11 @@ var nav = [
   {
     text: "Readings",
     items: [
+      {
+        text: "Azure",
+        link: "/courses/Azure/index",
+        activeMatch: "/courses/Azure/"
+      },
       {
         text: "MySQL",
         link: "/courses/MySQL/index",

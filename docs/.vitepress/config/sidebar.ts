@@ -1,7 +1,7 @@
-import type { DefaultTheme } from 'vitepress';
-import fg from 'fast-glob';
-import matter from 'gray-matter';
-import { getChineseZodiac, getChineseZodiacAlias } from '../theme/utils.ts';
+import type { DefaultTheme } from "vitepress";
+import fg from "fast-glob";
+import matter from "gray-matter";
+import { getChineseZodiac, getChineseZodiacAlias } from "../theme/utils.ts";
 const sync = fg.sync;
 
 export const sidebar: DefaultTheme.Config["sidebar"] = {
@@ -10,6 +10,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
   "/categories/DevOps/": getItemsByDate("categories/DevOps"),
   "/categories/IoT/": getItemsByDate("categories/IoT"),
 
+  "/courses/Azure/": getItems("courses/Azure"),
   "/courses/MySQL/": getItems("courses/MySQL"),
   "/courses/Orchestrator/": getItems("courses/Orchestrator"),
   "/courses/InterviewQuestions/": getItems("courses/InterviewQuestions"),
@@ -25,7 +26,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
  * @param path 扫描基础路径
  * @returns {DefaultTheme.SidebarItem[]}
  */
-function getItemsByDate (path: string) {
+function getItemsByDate(path: string) {
   // 侧边栏年份分组数组
   let yearGroups: DefaultTheme.SidebarItem[] = [];
   // 置顶数组
@@ -45,7 +46,7 @@ function getItemsByDate (path: string) {
       onlyDirectories: true,
       objectMode: true,
     }).forEach(({ name }) => {
-      let month = name
+      let month = name;
 
       // 3.获取所有日期目录
       sync(`docs/${path}/${year}/${month}/*`, {
@@ -64,18 +65,24 @@ function getItemsByDate (path: string) {
             // 向置顶分组前追加标题
             topArticleItems.unshift({
               text: data.title,
-              link: `/${path}/${year}/${month}/${day}/${article.name.replace('.md', '')}`,
+              link: `/${path}/${year}/${month}/${day}/${article.name.replace(
+                ".md",
+                ""
+              )}`,
             });
           }
 
           // 向年份分组前追加标题
           articleItems.unshift({
             text: data.title,
-            link: `/${path}/${year}/${month}/${day}/${article.name.replace('.md', '')}`,
+            link: `/${path}/${year}/${month}/${day}/${article.name.replace(
+              ".md",
+              ""
+            )}`,
           });
-        })
-      })
-    })
+        });
+      });
+    });
 
     // 添加年份分组
     yearGroups.unshift({
@@ -89,7 +96,7 @@ function getItemsByDate (path: string) {
       collapsed: false,
       // collapsed: true,
     });
-  })
+  });
 
   if (topArticleItems.length > 0) {
     // 添加置顶分组
@@ -120,7 +127,7 @@ function getItemsByDate (path: string) {
  * @param path 扫描基础路径
  * @returns {DefaultTheme.SidebarItem[]}
  */
-function getItems (path: string) {
+function getItems(path: string) {
   // 侧边栏分组数组
   let groups: DefaultTheme.SidebarItem[] = [];
   // 侧边栏分组下标题数组
@@ -146,29 +153,30 @@ function getItems (path: string) {
       // 向前追加标题
       items.push({
         text: data.title,
-        link: `/${path}/${groupName}/${article.name.replace('.md', '')}`,
+        link: `/${path}/${groupName}/${article.name.replace(".md", "")}`,
       });
       total += 1;
-    })
+    });
 
     // 3.向前追加到分组
     // 当分组内文章数量少于 A 篇或文章总数显示超过 B 篇时，自动折叠分组
     groups.push({
-      text: `${groupName.substring(groupName.indexOf('-') + 1)} (${items.length})`,
+      text: `${groupName.substring(groupName.indexOf("-") + 1)} (${
+        items.length
+      })`,
       items: items,
       collapsed: false,
       // collapsed: items.length < groupCollapsedSize || total > titleCollapsedSize,
-    })
+    });
 
     // 4.清空侧边栏分组下标题数组
     items = [];
-  })
+  });
 
   // 添加序号
   addOrderNumber(groups);
   return groups;
 }
-
 
 /**
  * 添加序号
