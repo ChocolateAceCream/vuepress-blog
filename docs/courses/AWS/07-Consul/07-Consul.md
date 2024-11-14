@@ -25,11 +25,13 @@ For the frontend code, there's no need to put it behind a gateway, so a stand-al
 2. setup portainer
 > kubectl apply -f https://downloads.portainer.io/ce2-16/portainer-agent-k8s-lb.yaml
 3. install consul using helm
-> helm install --values consul-value.yaml consul hashicorp/consul --create-namespace --namespace consul --version "1.2.0"
-- after install, run this
-> export CONSUL_HTTP_TOKEN=$(kubectl get --namespace consul secrets/consul-bootstrap-acl-token --template={{.data.token}} | base64 -d)
+```bash
+helm install --values consul-value.yaml consul hashicorp/consul --create-namespace --namespace consul --version "1.2.0"
 
->export CONSUL_HTTP_ADDR=https://$(kubectl get services/consul-ui --namespace consul -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+export CONSUL_HTTP_TOKEN=$(kubectl get --namespace consul secrets/consul-bootstrap-acl-token --template={{.data.token}} | base64 -d)
+
+export CONSUL_HTTP_ADDR=https://$(kubectl get services/consul-ui --namespace consul -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+```
 
 so you can retrieve url and token which used for consul ui login
 
