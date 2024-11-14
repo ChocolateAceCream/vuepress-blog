@@ -77,3 +77,7 @@ you should see which pod the request goes to
 
 11. forward port of grafana svc so you can check dashboard locally
 > kubectl port-forward svc/grafana 3000:3000
+
+
+All files are attached at
+[eks.zip](/source_code/2024/11/14/eks.zip)
