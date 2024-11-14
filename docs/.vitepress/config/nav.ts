@@ -56,7 +56,7 @@ export const nav: DefaultTheme.Config["nav"] = [
         activeMatch: "/courses/InterviewQuestions/",
       },
       {
-        text: "AWS Certification",
+        text: "AWS",
         link: "/courses/AWS/index",
         activeMatch: "/courses/AWS/",
       },
