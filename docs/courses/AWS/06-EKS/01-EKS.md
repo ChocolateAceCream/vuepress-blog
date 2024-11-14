@@ -183,3 +183,9 @@ spec:
 
 ## outbound
 if pod inside eks wants to visit internet, we can configure a NAT with a elastic ip so  all the outbound connections from an instance can be configured to go through NAT and the IP address that the destination server sees will be the IP address of the NAT gateway which is static.
+
+## Clean up
+When delete EKS, sometimes you need to manually delete its dependencies, from the following aspects:
+1. in EC2 panel, check EBS that associated with EKS node ec2 instance, delete those
+2. still in EC2 panel, check load balancer, delete VPC related ones
+3. back to VPS panel, try to delete your VPC
