@@ -20,11 +20,12 @@ use consul api-gateway as backend api entry point, then implement traffic split 
 It's common practice to put all backend api services behind consul api-gateway, so gateway can take care of routing, auth, certificates etc...
 For the frontend code, there's no need to put it behind a gateway, so a stand-alone nginx service is good enough, or other option is to put it in s3 + CDN.
 ## Steps
-1. Setup EKS and VPC using terraform
+1. Setup EKS and VPC using terraform then connect to eks
+> aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw kubernetes_cluster_id)
 2. setup portainer
 > kubectl apply -f https://downloads.portainer.io/ce2-16/portainer-agent-k8s-lb.yaml
 3. install consul using helm
-> helm install --values values-v1.yaml consul hashicorp/consul --create-namespace --namespace consul --version "1.2.0"
+> helm install --values consul-value.yaml consul hashicorp/consul --create-namespace --namespace consul --version "1.2.0"
 - after install, run this
 > export CONSUL_HTTP_TOKEN=$(kubectl get --namespace consul secrets/consul-bootstrap-acl-token --template={{.data.token}} | base64 -d)
 
