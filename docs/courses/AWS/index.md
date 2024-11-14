@@ -1,5 +1,5 @@
 ---
-title: AWS Certification
+title: AWS
 author: ChocolateAceCream
 date: 2024/05/05 10:24
 categories:
