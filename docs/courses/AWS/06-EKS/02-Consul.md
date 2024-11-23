@@ -3,7 +3,7 @@ title: Consul
 author: ChocolateAceCream
 date: 2024/11/10 16:25
 categories:
- - KONG
+ - Consul
 tags:
  - AWS
  - Go
