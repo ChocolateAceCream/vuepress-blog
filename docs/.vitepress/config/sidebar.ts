@@ -12,6 +12,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
 
   "/courses/Azure/": getItems("courses/Azure"),
   "/courses/MySQL/": getItems("courses/MySQL"),
+  "/courses/PostgreSQL/": getItems("courses/PostgreSQL"),
   "/courses/Orchestrator/": getItems("courses/Orchestrator"),
   "/courses/InterviewQuestions/": getItems("courses/InterviewQuestions"),
   "/courses/AWS/": getItems("courses/AWS"),
