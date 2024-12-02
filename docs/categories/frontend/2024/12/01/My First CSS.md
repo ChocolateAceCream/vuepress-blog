@@ -1,7 +1,7 @@
 ---
 title: My First CSS
 author: ChocolateAceCream
-date: 2024/12/1 19:00
+date: 2024/12/01 19:00
 isTop: false
 categories:
  - frontend
@@ -11,7 +11,8 @@ tags:
  - Frontend
 ---
 
-# First thing to know as a frontend developer
+# First thing to know as a frontend developer<Badge text="CSS" type="warning" />
+
 ### The box model
 - box-sizing: content-box (browser default)
 The size of an element only includes its content, and not its padding or border.
@@ -27,8 +28,11 @@ margin values sometimes collapse with an adjacent element's margin, taking the m
 e.g.
 if div1 margin-bottom is 20px and div2 margin-top is 30px, then the actual distance between div1 and div2 is 30px.
 
-<span> will not take explicit height and margin-bottom margin-top, since it only take up as much height as their content requires.
-```<div style="display:inline">``` will behavior same as <span>
+```<span>``` will not take explicit height and margin-bottom margin-top, since it only take up as much height as their content requires.
+```html
+<!-- will behavior same as <span> -->
+<div style="display:inline">
+```
 
 ### Layout
 - ```display: block```: its child elements will inherit its width by default.
