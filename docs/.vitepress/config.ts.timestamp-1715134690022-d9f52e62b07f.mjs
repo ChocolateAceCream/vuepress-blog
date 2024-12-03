@@ -317,8 +317,8 @@ function addOrderNumber(groups) {
 
 // docs/.vitepress/config/search/algolia-search.ts
 var algoliaSearchOptions = {
-  appId: "DBZ0G9HBUY",
-  apiKey: "00cef480a543003d05d9808110ea5f65",
+  appId: "NPACNVUDPP",
+  apiKey: "f31fc5a46754a4027965646a0d709e4e",
   indexName: "charles7c",
   locales: {
     root: {
