@@ -1,22 +1,23 @@
-import type { HeadConfig } from 'vitepress';
-import { metaData } from './constants';
+import type { HeadConfig } from "vitepress";
+import { metaData } from "./constants";
 
 export const head: HeadConfig[] = [
-  ['link', { rel: 'icon', href: '/favicon.ico' }],
-  ['meta', { name: 'author', content: 'ChocolateACeCream' }],
-  ['meta', { name: 'keywords', content: 'Knowledge Base of Di' }],
+  ["link", { rel: "icon", href: "/favicon.ico" }],
+  ["meta", { name: "author", content: "ChocolateACeCream" }],
+  ["meta", { name: "keywords", content: "Knowledge Base of Di" }],
 
-  ['meta', { name: 'HandheldFriendly', content: 'True' }],
-  ['meta', { name: 'MobileOptimized', content: '320' }],
-  ['meta', { name: 'theme-color', content: '#3c8772' }],
+  ["meta", { name: "HandheldFriendly", content: "True" }],
+  ["meta", { name: "MobileOptimized", content: "320" }],
+  ["meta", { name: "theme-color", content: "#3c8772" }],
+  ["meta", { name: "algolia-site-verification", content: "2545CD7E5BDFB1FB" }],
 
-  ['meta', { property: 'og:type', content: 'website' }],
-  ['meta', { property: 'og:locale', content: metaData.locale }],
-  ['meta', { property: 'og:title', content: metaData.title }],
-  ['meta', { property: 'og:description', content: metaData.description }],
-  ['meta', { property: 'og:site', content: metaData.site }],
-  ['meta', { property: 'og:site_name', content: metaData.title }],
-  ['meta', { property: 'og:image', content: metaData.image }],
+  ["meta", { property: "og:type", content: "website" }],
+  ["meta", { property: "og:locale", content: metaData.locale }],
+  ["meta", { property: "og:title", content: metaData.title }],
+  ["meta", { property: "og:description", content: metaData.description }],
+  ["meta", { property: "og:site", content: metaData.site }],
+  ["meta", { property: "og:site_name", content: metaData.title }],
+  ["meta", { property: "og:image", content: metaData.image }],
 
   // 百度统计代码：https://tongji.baidu.com
   // ['script', {}, `var _hmt = _hmt || [];
