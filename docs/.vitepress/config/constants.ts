@@ -1,4 +1,4 @@
-const site = 'https://blog.charles7c.top';
+const site = "https://chocolateacecream.github.io/vuepress-blog/";
 
 export const metaData = {
   lang: "zh-CN",
