@@ -1,8 +1,8 @@
-import type { DefaultTheme } from 'vitepress';
-import { nav } from './nav';
-import { sidebar } from './sidebar';
-import { algoliaSearchOptions } from './search/algolia-search';
-import { localSearchOptions } from './search/local-search';
+import type { DefaultTheme } from "vitepress";
+import { nav } from "./nav";
+import { sidebar } from "./sidebar";
+import { algoliaSearchOptions } from "./search/algolia-search";
+import { localSearchOptions } from "./search/local-search";
 
 export const themeConfig: DefaultTheme.Config = {
   nav, // 导航栏配置
@@ -30,8 +30,8 @@ export const themeConfig: DefaultTheme.Config = {
   },
   // 搜索配置（二选一）
   search: {
-    provider: "algolia",
-    options: algoliaSearchOptions,
+    provider: "local",
+    // options: algoliaSearchOptions,
     // 本地离线搜索
     // provider: 'local',
     // options: localSearchOptions
