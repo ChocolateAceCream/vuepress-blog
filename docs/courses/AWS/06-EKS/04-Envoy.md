@@ -13,7 +13,7 @@ tags:
  - Consul
 ---
 
-# envoy
+# envoy <Badge text="envoy" type="warning" />
 Consul use envoy for its sidecar mode.
 ## Sidecar mode
 When deploy a service inside consul service mesh using k8s, you need to deploy multiple stuff along with it, which must includes:

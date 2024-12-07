@@ -11,7 +11,7 @@ tags:
  - VPC
 ---
 
-# Setup EKS and VPC using terraform
+# Setup EKS and VPC using terraform <Badge text="EKS" type="warning" />
 ## Why VPC
 VPC can be used to provide a unified entry point for all services, not limited to EKS, S3, etc, so each service will communicate to each other in same internal network.
 

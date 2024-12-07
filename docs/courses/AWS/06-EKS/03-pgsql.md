@@ -11,7 +11,7 @@ tags:
  - pgSQL
 ---
 
-# Setup PgSQL inside eks cluster
+# Setup PgSQL inside eks cluster <Badge text="PGSQL" type="warning" />
 ## Why
 After deploy consul, I think it's time to deploy some go-kit micro services. The first one comes to my mind is a auth service, which will use redis and pgsql for sure.
 
