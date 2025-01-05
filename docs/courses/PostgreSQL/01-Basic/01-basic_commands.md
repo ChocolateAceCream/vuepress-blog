@@ -14,6 +14,85 @@ tags:
 # Function and trigger
 
 ## build-in functions
+### Type Casting
+syntax is ```::TARGET_TYPE```
+e.g.
+```sql
+update account
+  set balance = balance - 900::money
+--   or you can do this
+--   set balance = balance - '900'::money
+
+  where name = 'kevin' and type = 'checking';
+```
+this will casting 900 to money type.
+
+### random()
+```random() ``` generate random number from 0 ~ 1
+e.g.
+```sql
+WITH x (a,b) AS (
+    SELECT
+			trunc(random() * 100)::text,  -- Generate a random number once
+			trunc(random() * 100)::integer  -- Generate a random number once
+    FROM generate_series(1, 3)       -- Create 10 rows
+)
+insert into account select x.a,'saving',x.b::money from x;
+```
+### generate_series(start,end,step)
+- step is optional
+generate a series given start point, end point and steps in between.
+
+### vacuum
+clean up dead tuples manually. useful when high write activity involved.
+
+dead tuples are generated because of pgsql's MVCC (multi-version concurrency control). This model ensures data consistency and isolation by maintaining multiple versions of a row, allowing transactions to work concurrently without locking.
+
+### analyze
+collect statistics about the table's data and stores them in the system catalog. These statistics are used by the query planner to make efficient query execution decisions.
+
+e.g.
+```sql
+vacuum analyze t;
+```
+
+**vacuum analyze is useful when**
+1. after large updates, inserts, or deletes
+2. query performance has degraded due to inaccurate table statistics or table bloat
+
+### string concatenation
+1. use || to concatenate two strings.
+e.g. match val column with string str1str2str3
+```sql
+select * from t where val = 'str1' || 'str2' || 'str3'
+```
+
+2. use concat()
+e.g. previous example can be rewrite using concat() as:
+```sql
+select * from t where val = concat('str1', 'str2', 'str3')
+```
+
+3. use concat_ws(), first param is the separator
+e.g.
+```sql
+select concat_ws(', ', 'apple','banana', 'pear')
+-- Result: 'apple, banana, pear'
+```
+
+### substring()
+1. substring(str, from)
+```sql
+SELECT SUBSTRING('user@example.com' FROM POSITION('@' IN 'user@example.com') + 1);
+-- Result: 'example.com'
+```
+
+2. substring(str, from, for)
+```sql
+select substring('123456' from 1 for 3)
+-- Result: '123'
+```
+
 
 ### now()
 return the current timestamp, pgsql specific, the DB standard command is CURRENT_TIMESTAMP
