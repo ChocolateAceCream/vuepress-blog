@@ -1,10 +1,9 @@
 ---
-title: Summary
+title: System Design
 author: ChocolateAceCream
-date: 2024/09/24 10:24
-isTop: true
+date: 2024/05/04 10:24
 categories:
- - Interview
+ - System Design
 tags:
  - System Design
 ---
