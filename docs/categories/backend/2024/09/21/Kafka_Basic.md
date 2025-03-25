@@ -22,3 +22,29 @@ each message can have a key of any []byte type, this key is used for partition t
 
 ## Value
 Can be any format that parsed into []byte.
+
+## In-Sync Replicas(ISR)
+the broker that are:
+- fully up-to-date with partition's leader
+- alive and replicating without lag beyond threshold
+
+common setting is
+```sh
+ack=all
+# Wait for all ISR (In-Sync Replicas) of the partition to confirm the write before ACKing the producer
+min.insync.replicas=2
+# Only allow writes if at least 2 brokers (including leader) are in the In-Sync Replicas (ISR) set
+```
+
+So once producer send message to broker, the leader broker will sync message in background in parallel to all the ISRs and wait for ack back. if not enough ack (less than the min.insync.replicas), the write is rejected, msg was marked as uncomitted, so it can be GC or rolled back during failover.
+If has enough acks back, then msg was marked as committed and included in High Watermark
+
+p.s. when counting ISRs, leader broker itself is always counted as ISR
+
+## High Watermark
+The high watermark is the offset of the last committed message in kafka partition
+A message is committed if it has been
+- written to the leader
+- replicated to all required ISRs (>=min.insync.replicas)
+
+p.s. ***consumers only see messages up to the HW.***
