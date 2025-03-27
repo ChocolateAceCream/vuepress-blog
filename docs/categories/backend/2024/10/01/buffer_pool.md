@@ -21,19 +21,53 @@ P.S buffers in buffer pool can be GC, once no goroutine request that buffer for 
 
 ## How to use
 ```go
-type BufferPool struct {
-  pool sync.Pool
+package main
+
+import (
+	"bytes"
+	"fmt"
+	"sync"
+)
+
+var bufferPool = sync.Pool{
+	New: func() interface{} {
+		return new(bytes.Buffer)
+	},
 }
 
-func (p *BufferPool) Get() *bytes.Buffer {
-  buf := p.pool.Get()
-  if buf == nil {
-    return &bytes.Buffer{}
-  }
-  return buf.(*bytes.Buffer)
+func main() {
+	buf := bufferPool.Get().(*bytes.Buffer)
+	defer bufferPool.Put(buf)
+	buf.Reset()
+	buf.WriteString("Hello world")
+	buf.WriteString("\n!!!")
+	fmt.Println(buf.String())
 }
 
-func (p *BufferPool) Put(buf *bytes.Buffer) {
-  p.pool.Put(buf)
-}
 ```
+
+### get(), put() and reset()
+get() will return objects from buffer pool, after use, use put() to put object back to pool.
+you can call reset() before put() to make sure value is cleaned, or right after get()
+
+## What's behind buffer pool (sync.Pool)
+In order to understand how buffer pool works, first we need to understand logical processor (P) of G-M-P scheduling model (Goroutine-Machine-Processor)
+
+#### **G-M-P Model Overview**
+| Component | Role |
+|-----------|------|
+| **G (Goroutine)** | Lightweight thread managed by Go. |
+| **M (Machine)** | OS thread (real CPU thread). |
+| **P (Processor)** | Schedules goroutines onto `M`s. |
+
+#### How Ps work with sync.Pool
+Each P has its own local cache to put sync.Pool objects.
+When you call Put() or Get(), the operation first tries the current P’s local cache (lock-free, fast path).
+If the local cache is full/empty, it interacts with the global pool (requires a mutex, slow path).
+
+So, in order to go with fast path, one way is to increase GOMAXPROCS (usually set to the # of CPU cores), which is equal to number of Ps. More Ps means more local caches and less chance of going to slow path
+
+#### global pool
+rarely used, act as a backup plan if P's local cache overflows.
+- When a P’s local cache overflows (e.g., too many Put() calls), excess objects spill into the global pool.
+- When a P’s local cache is empty (e.g., too many Get() calls), it can steal objects from the global pool.
