@@ -60,6 +60,11 @@ export const nav: DefaultTheme.Config["nav"] = [
         link: "/courses/AWS/index",
         activeMatch: "/courses/AWS/",
       },
+      {
+        text: "Typescript",
+        link: "/courses/Typescript/index",
+        activeMatch: "/courses/Typescript/",
+      },
       // {
       //   text: "MyBatis快速入门",
       //   link: "/courses/mybatis/index",

@@ -16,6 +16,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
   "/courses/Orchestrator/": getItems("courses/Orchestrator"),
   "/courses/SystemDesign/": getItems("courses/SystemDesign"),
   "/courses/AWS/": getItems("courses/AWS"),
+  "/courses/Typescript/": getItems("courses/Typescript"),
   // "/courses/mybatis/": getItems("courses/mybatis"),
 };
 

@@ -43,4 +43,6 @@ Now you only need to migrate data between C and D, but traditional hashing requi
 #### One more optimization -> Virtual Nodes
 Sometimes if you not evenly distributed your nodes along the circle, it will cause one node super busy and one node has nothing to work with. One approach to solve this is to use virtual nodes, so multiple virtual nodes can be mapped to a single physical server.
 
-
+## Set operations
+When store data in redis set using go-redis client, it only accept two type of data: string or []byte. If input is []byte, then store the raw data. If input is other type, then convert it to its string representation and then store it.
+When retrieving the data, you either use .Bytes() to retrieve raw binary data or to use .Result() to expect UTF-8 strings.
