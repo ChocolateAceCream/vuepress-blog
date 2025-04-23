@@ -128,3 +128,4 @@ logPoint(point);
 
 Even though point passed to logPoint function is not declared with Point type, since it contains every prop of Point type, it's inferred by TS to be of the same type as Point since the 'shape' matched, thus no error returns.
 P.S. In order for duck typing to work, the shape-matching only requires a subset of the object’s fields to match. e.g. it can still work if point has more fields added, as long as it contains every field of Point.
+
